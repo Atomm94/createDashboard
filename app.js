@@ -5,10 +5,6 @@ const passport = require('passport');
 const authorize = require('./authorize');
 const config = require('./config');
 const path = require('path');
-// const proxy = require('express-http-proxy');
-// const app = require('express')();
-//
-// app.use('/', proxy('localhost:3000/google'));
 
 const app = express()
 const port = config.config.PORT || 3000
