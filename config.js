@@ -10,9 +10,7 @@ mongoose.connect(process.env.DATABASE, {
 
 const authorization = function (req, res, next) {
     let token = req.headers['x-access-token'] || req.headers['authorization'] || req.query.token;
-    // if(token == req.headers['authorization'] && req.headers['authorization'].includes('Bearer')) {
-    //     token = token.slice(7)
-    // }
+
     let msg = {auth: false, message: 'No token provided.'};
     if (!token) res.status(500).json(msg);
     jwt.verify(token, process.env.tokenSecret, function (err, decoded) {
